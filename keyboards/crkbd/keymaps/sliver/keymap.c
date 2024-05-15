@@ -193,9 +193,9 @@ int current_wpm = 0;
 led_t led_usb_state;
 
 bool isSneaking = false;
-bool isJumping = false;
+bool isJumping  = false;
 bool showedJump = true;
-bool isBarking = false;
+bool isBarking  = false;
 
 /* logic */
 static void render_luna(int LUNA_X, int LUNA_Y) {
@@ -453,20 +453,23 @@ static void print_status_narrow(void) {
   oled_set_cursor(0, 6);
 
   switch (get_highest_layer(layer_state)) {
-  case 0:
+  case _BASE:
     oled_write("Base ", false);
     break;
-  case 1:
-    oled_write("Nums ", false);
+  case _SYM:
+    oled_write("Sym  ", false);
     break;
-  case 2:
+  case _NAV:
+    oled_write("Nav  ", false);
+    break;
+  case _FUNC:
     oled_write("Func ", false);
     break;
-  case 3:
-    oled_write("LOL  ", false);
-    break;
-  case 4:
+  case _CONF:
     oled_write("Conf ", false);
+    break;
+  case _LOL:
+    oled_write("LOL  ", false);
     break;
   default:
     oled_write("Undef", false);

@@ -474,7 +474,7 @@ void leader_start_user(void) {
 
 void leader_end_user(void) {
     if (leader_sequence_two_keys(KC_I, KC_A)) {
-        SEND_STRING("curl -fsSL joaoinez.me/arch.sh | sh")
+        SEND_STRING("curl -fsSL joaoinez.me/arch.sh | sh");
     }
 
     // if (leader_sequence_one_key(KC_F)) {

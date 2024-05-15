@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          MO_FUNC,  MO_SYM,  KC_SPC,     KC_ENT, KC_LSFT,  MO_NAV
+                                          MO_FUNC,  MO_NAV,  KC_SPC,     KC_ENT, KC_LSFT,  MO_SYM
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, KC_UNDS,                      KC_MINS, KC_TILD, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, _______,    _______, _______, XXXXXXX
+                                          OS_CONF, XXXXXXX, _______,    _______, _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -130,11 +130,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_LOL] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,    KC_1,    KC_Q,    KC_W,    KC_E,    KC_R,                       LCTL_1,  LCTL_2,  LCTL_3,  LCTL_4,  LCTL_5, XXXXXXX,
+       KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_Z,                       LCTL_1,  LCTL_2,  LCTL_3,  LCTL_4,  LCTL_5, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_TAB,    KC_2,    KC_A,    KC_S,    KC_D,    KC_F,                         KC_T, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_C,                         KC_T, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_3,    KC_Z,    KC_C,    KC_V,    KC_B,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LSFT,    KC_1,    KC_2,    KC_3,    KC_V,    KC_B,                         KC_4,    KC_5,    KC_6, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LCTL,  KC_SPC, KC_LALT,       KC_P, XXXXXXX, OS_CONF
                                       //`--------------------------'  `--------------------------'
@@ -195,7 +195,6 @@ int current_wpm = 0;
 led_t led_usb_state;
 
 bool isSneaking = false;
-bool isRunning  = false;
 bool isJumping  = false;
 bool showedJump = true;
 
@@ -367,9 +366,6 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
     } else if (isSneaking) {
       oled_write_raw_P(sneak[abs(1 - current_frame)], ANIM_SIZE);
 
-    } else if (isRunning) {
-      oled_write_raw_P(run[abs(1 - current_frame)], ANIM_SIZE);
-
     } else if (current_wpm <= MIN_WALK_SPEED) {
       oled_write_raw_P(sit[abs(1 - current_frame)], ANIM_SIZE);
 
@@ -513,12 +509,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (isJumping) {
       showedJump = false;
     }
-    break;
-  case KC_RSFT:
-    isRunning = record->event.pressed;
-    break;
-  case KC_LSFT:
-    isRunning = record->event.pressed;
     break;
   }
 

@@ -1,6 +1,6 @@
 {
     "userspace_version": "1.0",
     "build_targets": [
-        ["crkbd/rev1", "sliver"]
+        ["crkbd/rev1", "sliver", ["CONVERT_TO", "promicro_rp2040"]]
     ]
 }

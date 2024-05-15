@@ -465,7 +465,8 @@ bool oled_task_user(void) {
 
 void leader_start_user(void) {
 #ifdef OLED_ENABLE
-    isJumping = true if (isJumping) {
+    isJumping = true;
+    if (isJumping) {
         showedJump = false;
     }
 #endif

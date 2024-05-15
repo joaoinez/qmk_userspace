@@ -201,8 +201,7 @@ bool showedJump = true;
 bool isRunning  = false
 
     /* logic */
-    static void
-    render_luna(int LUNA_X, int LUNA_Y) {
+    static void render_luna(int LUNA_X, int LUNA_Y) {
     /* Sit */
     static const char PROGMEM sit[2][ANIM_SIZE] = {
         /* 'sit1', 32x22px */

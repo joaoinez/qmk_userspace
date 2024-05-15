@@ -99,7 +99,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #    define ENABLE_RGB_MATRIX_RAINBOW_BEACON
 // #    define ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
 // #    define ENABLE_RGB_MATRIX_RAINDROPS
-// #    define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
+#    define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
 // #    define ENABLE_RGB_MATRIX_HUE_BREATHING
 // #    define ENABLE_RGB_MATRIX_HUE_PENDULUM
 // #    define ENABLE_RGB_MATRIX_HUE_WAVE

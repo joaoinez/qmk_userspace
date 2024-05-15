@@ -29,10 +29,10 @@ enum layers {
     _SYM,
     _NAV,
     _FUNC,
-    // keyboard configuration
-    _CONF,
     // League of Legends layer
-    _LOL
+    _LOL,
+    // keyboard configuration
+    _CONF
 };
 
 // custom oneshot mod implementation
@@ -44,8 +44,8 @@ enum keycodes {
 #define MO_SYM   MO(_SYM)
 #define MO_NAV   MO(_NAV)
 #define MO_FUNC  MO(_FUNC)
-#define MO_CONF  MO(_CONF)
 #define MO_LOL   MO(_LOL)
+#define MO_CONF  MO(_CONF)
 
 #define TO_BASE  TO(_BASE)
 #define TO_LOL   TO(_LOL)
@@ -128,18 +128,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
 
-    [_CONF] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      TO_BASE,  TO_LOL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
-                                      //`--------------------------'  `--------------------------'
-  ),
-
     [_LOL] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_ESC,    KC_1,    KC_Q,    KC_W,    KC_E,    KC_R,                       LCTL_1,  LCTL_2,  LCTL_3,  LCTL_4,  LCTL_5, XXXXXXX,
@@ -151,6 +139,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                           KC_LCTL,  KC_SPC, KC_LALT,       KC_P, XXXXXXX, OS_CONF
                                       //`--------------------------'  `--------------------------'
   ),
+
+    [_CONF] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      TO_BASE,  TO_LOL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                      //`--------------------------'  `--------------------------'
+  )
 };
 
 #ifdef OLED_ENABLE
@@ -178,8 +178,10 @@ static void render_logo(void) {
 #define MIN_RUN_SPEED  40
 
 /* advanced settings */
-#define ANIM_FRAME_DURATION 200 // how long each frame lasts in ms
-#define ANIM_SIZE           96  // number of bytes in array. If you change sprites, minimize for adequate firmware size. Max is 1024
+// how long each frame lasts in ms
+#define ANIM_FRAME_DURATION 200
+// number of bytes in array. If you change sprites, minimize for adequate firmware size. Max is 1024
+#define ANIM_SIZE           96
 
 /* timers */
 uint32_t anim_timer = 0;
@@ -465,11 +467,11 @@ static void print_status_narrow(void) {
   case _FUNC:
     oled_write("Func ", false);
     break;
-  case _CONF:
-    oled_write("Conf ", false);
-    break;
   case _LOL:
     oled_write("LOL  ", false);
+    break;
+  case _CONF:
+    oled_write("Conf ", false);
     break;
   default:
     oled_write("Undef", false);

@@ -7,8 +7,6 @@ permissions:
 
 jobs:
     build:
-        env:
-            CONVERT_TO: promicro_rp2040
         name: "QMK Userspace Build"
         uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
         with:

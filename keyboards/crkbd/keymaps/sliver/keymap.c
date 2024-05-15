@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           MO_NAV, KC_LSFT,  KC_SPC,     KC_ENT,  MO_SYM, MO_FUNC
+                                          MO_FUNC,  MO_SYM,  KC_SPC,     KC_ENT, KC_LSFT,  MO_NAV
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, KC_UNDS,                      KC_MINS, KC_TILD, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, _______, _______,    _______, XXXXXXX, XXXXXXX
+                                          XXXXXXX, XXXXXXX, _______,    _______, _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -112,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, _______, _______,    _______, XXXXXXX, XXXXXXX
+                                          XXXXXXX, XXXXXXX, _______,    _______, _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -124,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_MPLY, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          OS_CONF, XXXXXXX, XXXXXXX,    XXXXXXX, MO_CONF, XXXXXXX
+                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, OS_CONF
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -195,9 +195,9 @@ int current_wpm = 0;
 led_t led_usb_state;
 
 bool isSneaking = false;
+bool isRunning  = false;
 bool isJumping  = false;
 bool showedJump = true;
-bool isBarking  = false;
 
 /* logic */
 static void render_luna(int LUNA_X, int LUNA_Y) {
@@ -373,6 +373,9 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
     } else if (current_wpm <= MIN_RUN_SPEED) {
       oled_write_raw_P(walk[abs(1 - current_frame)], ANIM_SIZE);
 
+    } else if (isRunning) {
+      oled_write_raw_P(run[abs(1 - current_frame)], ANIM_SIZE);
+
     } else {
       oled_write_raw_P(run[abs(1 - current_frame)], ANIM_SIZE);
     }
@@ -511,8 +514,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       showedJump = false;
     }
     break;
-  case KC_CAPS:
-    isBarking = record->event.pressed;
+  case KC_RSFT:
+    isRunning = record->event.pressed;
+    break;
+  case KC_LSFT:
+    isRunning = record->event.pressed;
     break;
   }
 

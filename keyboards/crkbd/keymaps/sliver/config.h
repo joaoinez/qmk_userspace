@@ -49,6 +49,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_ACTION_ONESHOT
 // #define SPLIT_OLED_ENABLE
 
+#define LEADER_NO_TIMEOUT
+
 #ifdef RGB_MATRIX_ENABLE
 
 // #define RGB_MATRIX_KEYPRESSES // reacts to keypresses

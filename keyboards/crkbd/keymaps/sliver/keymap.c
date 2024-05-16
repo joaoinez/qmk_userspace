@@ -465,39 +465,25 @@ bool oled_task_user(void) {
 #endif
 
 void leader_start_user(void) {
-#ifdef OLED_ENABLE
     isJumping = true;
     if (isJumping) {
         showedJump = false;
     }
-#endif
 }
 
 void leader_end_user(void) {
     if (leader_sequence_two_keys(KC_I, KC_A)) {
         SEND_STRING("curl -fsSL joaoinez.me/arch.sh | sh");
+    } else if (leader_sequence_two_keys(KC_I, KC_M)) {
+        SEND_STRING("curl -fsSL joaoinez.me/macos.sh | sh");
+    } else if (leader_sequence_two_keys(KC_I, KC_W)) {
+        SEND_STRING("Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://joaoinez.me/windows.ps1'))");
     }
-
-    // if (leader_sequence_one_key(KC_F)) {
-    //     // Leader, f => Types the below string
-    //     SEND_STRING("QMK is awesome.");
-    // } else if (leader_sequence_two_keys(KC_D, KC_D)) {
-    //     // Leader, d, d => Ctrl+A, Ctrl+C
-    //     SEND_STRING(SS_LCTL("a") SS_LCTL("c"));
-    // } else if (leader_sequence_three_keys(KC_D, KC_D, KC_S)) {
-    //     // Leader, d, d, s => Types the below string
-    //     SEND_STRING("https://start.duckduckgo.com\n");
-    // } else if (leader_sequence_two_keys(KC_A, KC_S)) {
-    //     // Leader, a, s => GUI+S
-    //     tap_code16(LGUI(KC_S));
-    // }
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!update_flow(keycode, record->event.pressed, record->event.key))
         return false;
-
-#ifdef OLED_ENABLE
 
     switch (keycode) {
         case KC_LCTL:
@@ -510,8 +496,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
     }
-
-#endif
 
     return true;
 }

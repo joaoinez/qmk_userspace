@@ -73,7 +73,7 @@ const uint16_t flow_config[FLOW_COUNT][2] = {
     {MO_FUNC, KC_RGUI},
     {MO_FUNC, KC_RALT},
     {MO_FUNC, KC_RCTL},
-    {MO_FUNC, KC_RSFT},
+    {MO_FUNC, KC_RSFT}
 };
 
 // for layers configuration follow this format:

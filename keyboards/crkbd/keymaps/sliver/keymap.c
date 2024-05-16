@@ -64,15 +64,16 @@ const uint16_t flow_config[FLOW_COUNT][2] = {
     {MO_NAV, KC_LALT},
     {MO_NAV, KC_LCTL},
     {MO_NAV, KC_LSFT},
+    {MO_NAV, KC_RGUI},
     // symbols layer
-    {MO_FUNC, KC_RGUI},
-    {MO_FUNC, KC_RALT},
-    {MO_FUNC, KC_RCTL},
-    {MO_FUNC, KC_RSFT},
     {MO_FUNC, KC_LGUI},
     {MO_FUNC, KC_LALT},
     {MO_FUNC, KC_LCTL},
     {MO_FUNC, KC_LSFT},
+    {MO_FUNC, KC_RGUI},
+    {MO_FUNC, KC_RALT},
+    {MO_FUNC, KC_RCTL},
+    {MO_FUNC, KC_RSFT},
 };
 
 // for layers configuration follow this format:
@@ -89,19 +90,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      QK_LEAD,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, OS_CONF,
+      QK_LEAD,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          MO_FUNC,  MO_NAV,  KC_SPC,     KC_ENT,  MO_SYM, KC_LSFT
+                                          MO_FUNC,  MO_NAV,  KC_SPC,     KC_ENT,  MO_SYM, KC_RSFT
                                       //`--------------------------'  `--------------------------'
   ),
 
     [_SYM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_GRV, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+      _______, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      CW_TOGG, KC_TILD, KC_BSLS, KC_LBRC, KC_RBRC, KC_PLUS,                       KC_EQL, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT, XXXXXXX,
+      CW_TOGG, KC_TILD, XXXXXXX, KC_LBRC, KC_RBRC, KC_PLUS,                       KC_EQL, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT,  KC_GRV,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, KC_UNDS,                      KC_MINS, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, KC_MINS,                      KC_UNDS, KC_PIPE,   KC_LT,   KC_GT, KC_BSLS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, _______,    _______, XXXXXXX, _______
                                       //`--------------------------'  `--------------------------'
@@ -113,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_PGUP, KC_HOME,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, XXXXXXX,
+      KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_RGUI,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, _______,    _______, XXXXXXX, _______
                                       //`--------------------------'  `--------------------------'
@@ -125,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_CAPS, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,  KC_F11,                       KC_F12, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT, KC_PSCR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_MPLY, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_MPLY, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE, OS_CONF,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -166,7 +167,7 @@ static void render_logo(void) {
 
 /* settings */
 #    define MIN_WALK_SPEED 10
-#    define MIN_RUN_SPEED 40
+#    define MIN_RUN_SPEED  40
 
 /* advanced settings */
 // how long each frame lasts in ms

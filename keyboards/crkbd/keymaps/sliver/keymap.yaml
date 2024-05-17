@@ -37,7 +37,7 @@ layers:
             { t: ",", h: < },
             { t: ".", h: ">" },
             { t: /, h: "?" },
-            cmd,
+            menu,
             func,
             nav,
             space,
@@ -61,10 +61,10 @@ layers:
         - back space
         - caps word
         - "~"
-        - ""
-        - "["
-        - "]"
-        - +
+        - _
+        - "{"
+        - "}"
+        - "-"
         - "="
         - cmd
         - alt
@@ -73,16 +73,16 @@ layers:
         - "`"
         - cmd
         - ""
-        - ""
-        - "{"
-        - "}"
-        - "-"
-        - _
         - "|"
-        - "<"
-        - ">"
+        - "["
+        - "]"
+        - "+"
+        - ""
+        - ""
+        - ""
+        - ""
         - \
-        - cmd
+        - { t: conf, type: ghost }
         - ""
         - ""
         - space
@@ -125,7 +125,7 @@ layers:
         - ""
         - ""
         - page down
-        - cmd
+        - { t: conf, type: ghost }
         - ""
         - { t: nav, type: held }
         - space

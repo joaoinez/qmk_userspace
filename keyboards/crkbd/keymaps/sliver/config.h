@@ -39,8 +39,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_USB_TIMEOUT_POLL 10
 #define SPLIT_WATCHDOG_TIMEOUT 3000
 
-#define DYNAMIC_KEYMAP_LAYER_COUNT 6
-#define FLOW_COUNT                 18
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
+#define FLOW_COUNT                 17
 #define FLOW_LAYERS_COUNT          1
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"

@@ -55,7 +55,6 @@ enum keycodes {
 // * modifier keycode
 const uint16_t flow_config[FLOW_COUNT][2] = {
     // symbols layer
-    {MO_SYM, KC_RGUI},
     {MO_SYM, KC_LGUI},
     {MO_SYM, KC_RALT},
     {MO_SYM, KC_RCTL},
@@ -91,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LGUI,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RGUI,
+      KC_LGUI,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_APP,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           MO_FUNC,  MO_NAV,  KC_SPC,     KC_ENT,  MO_SYM, KC_RSFT
                                       //`--------------------------'  `--------------------------'
@@ -101,9 +100,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_ESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      CW_TOGG, KC_TILD, XXXXXXX, KC_LBRC, KC_RBRC, KC_PLUS,                       KC_EQL, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT,  KC_GRV,
+      CW_TOGG, KC_TILD, KC_UNDS, KC_LCBR, KC_RCBR, KC_MINS,                       KC_EQL, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT,  KC_GRV,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LGUI, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, KC_MINS,                      KC_UNDS, KC_PIPE,   KC_LT,   KC_GT, KC_BSLS, KC_RGUI,
+      KC_LGUI, XXXXXXX, KC_PIPE, KC_LBRC, KC_RBRC, KC_PLUS,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BSLS, OS_CONF,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX,  KC_SPC,     KC_ENT, XXXXXXX, KC_RSFT
                                       //`--------------------------'  `--------------------------'
@@ -115,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_PGUP, KC_HOME,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_RGUI,
+      KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, OS_CONF,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX,  KC_SPC,     KC_ENT, XXXXXXX, KC_RSFT
                                       //`--------------------------'  `--------------------------'

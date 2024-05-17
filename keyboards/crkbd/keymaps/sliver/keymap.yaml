@@ -26,7 +26,7 @@ layers:
             l,
             { t: ;, h: ":" },
             { t: "'", h: '"' },
-            leader,
+            cmd,
             z,
             x,
             c,
@@ -37,7 +37,7 @@ layers:
             { t: ",", h: < },
             { t: ".", h: ">" },
             { t: /, h: "?" },
-            "",
+            cmd,
             func,
             nav,
             space,
@@ -47,7 +47,7 @@ layers:
         ]
 
     sym:
-        - { t: ▽, type: trans }
+        - esc
         - "!"
         - "@"
         - "#"
@@ -58,7 +58,7 @@ layers:
         - "*"
         - (
         - )
-        - { t: ▽, type: trans }
+        - back space
         - caps word
         - "~"
         - ""
@@ -71,7 +71,7 @@ layers:
         - ctrl
         - shift
         - "`"
-        - ""
+        - cmd
         - ""
         - ""
         - "{"
@@ -82,15 +82,15 @@ layers:
         - "<"
         - ">"
         - \
+        - cmd
         - ""
         - ""
-        - ""
-        - { t: ▽, type: trans }
-        - { t: ▽, type: trans }
-        - { type: held }
-        - { t: ▽, type: trans }
+        - space
+        - enter
+        - { t: sym, type: held }
+        - shift
     nav:
-        - { t: ▽, type: trans }
+        - esc
         - "1"
         - "2"
         - "3"
@@ -101,8 +101,8 @@ layers:
         - "8"
         - "9"
         - "0"
-        - { t: ▽, type: trans }
-        - { t: ▽, type: trans }
+        - back space
+        - tab
         - shift
         - ctrl
         - alt
@@ -127,13 +127,13 @@ layers:
         - page down
         - cmd
         - ""
-        - { type: held }
-        - { t: ▽, type: trans }
-        - { t: ▽, type: trans }
+        - { t: nav, type: held }
+        - space
+        - enter
         - ""
-        - { t: ▽, type: trans }
+        - shift
     func:
-        - { t: ▽, type: trans }
+        - esc
         - f1
         - f2
         - f3
@@ -169,7 +169,7 @@ layers:
         - media next
         - mute
         - { t: conf, type: ghost }
-        - { type: held }
+        - { t: func, type: held }
         - ""
         - ""
         - ""
@@ -212,8 +212,8 @@ layers:
             "",
             "",
             "",
-            { type: held },
-            { type: held },
+            { t: conf, type: held },
+            { t: func, type: held },
             "",
             "",
             "",

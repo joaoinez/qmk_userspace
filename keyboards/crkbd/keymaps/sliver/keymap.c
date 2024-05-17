@@ -56,15 +56,16 @@ enum keycodes {
 const uint16_t flow_config[FLOW_COUNT][2] = {
     // symbols layer
     {MO_SYM, KC_RGUI},
+    {MO_SYM, KC_LGUI},
     {MO_SYM, KC_RALT},
     {MO_SYM, KC_RCTL},
     {MO_SYM, KC_RSFT},
     // navigation layer
+    {MO_NAV, KC_RGUI},
     {MO_NAV, KC_LGUI},
     {MO_NAV, KC_LALT},
     {MO_NAV, KC_LCTL},
     {MO_NAV, KC_LSFT},
-    {MO_NAV, KC_RGUI},
     // symbols layer
     {MO_FUNC, KC_LGUI},
     {MO_FUNC, KC_LALT},
@@ -90,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      QK_LEAD,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
+      KC_LGUI,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RGUI,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           MO_FUNC,  MO_NAV,  KC_SPC,     KC_ENT,  MO_SYM, KC_RSFT
                                       //`--------------------------'  `--------------------------'
@@ -98,31 +99,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_SYM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+       KC_ESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       CW_TOGG, KC_TILD, XXXXXXX, KC_LBRC, KC_RBRC, KC_PLUS,                       KC_EQL, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT,  KC_GRV,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, KC_MINS,                      KC_UNDS, KC_PIPE,   KC_LT,   KC_GT, KC_BSLS, XXXXXXX,
+      KC_LGUI, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, KC_MINS,                      KC_UNDS, KC_PIPE,   KC_LT,   KC_GT, KC_BSLS, KC_RGUI,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, _______,    _______, XXXXXXX, _______
+                                          XXXXXXX, XXXXXXX,  KC_SPC,     KC_ENT, XXXXXXX, KC_RSFT
                                       //`--------------------------'  `--------------------------'
   ),
 
     [_NAV] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
+       KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_PGUP, KC_HOME,
+       KC_TAB, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_PGUP, KC_HOME,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_RGUI,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, _______,    _______, XXXXXXX, _______
+                                          XXXXXXX, XXXXXXX,  KC_SPC,     KC_ENT, XXXXXXX, KC_RSFT
                                       //`--------------------------'  `--------------------------'
   ),
 
     [_FUNC] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_DEL,
+       KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_CAPS, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,  KC_F11,                       KC_F12, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT, KC_PSCR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -463,23 +464,6 @@ bool oled_task_user(void) {
 }
 
 #endif
-
-void leader_start_user(void) {
-    isJumping = true;
-    if (isJumping) {
-        showedJump = false;
-    }
-}
-
-void leader_end_user(void) {
-    if (leader_sequence_two_keys(KC_I, KC_A)) {
-        SEND_STRING("curl -fsSL joaoinez.me/arch.sh | sh");
-    } else if (leader_sequence_two_keys(KC_I, KC_M)) {
-        SEND_STRING("curl -fsSL joaoinez.me/macos.sh | sh");
-    } else if (leader_sequence_two_keys(KC_I, KC_W)) {
-        SEND_STRING("Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://joaoinez.me/windows.ps1'))");
-    }
-}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!update_flow(keycode, record->event.pressed, record->event.key))

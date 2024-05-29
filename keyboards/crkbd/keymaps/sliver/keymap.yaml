@@ -5,35 +5,35 @@ layers:
             esc,
             q,
             w,
-            e,
-            r,
-            t,
-            y,
-            u,
-            i,
-            o,
+            f,
             p,
+            b,
+            j,
+            l,
+            u,
+            y,
+            { t: ;, h: ":" },
             back space,
             tab,
             a,
+            r,
             s,
-            d,
-            f,
+            t,
             g,
-            h,
-            j,
-            k,
-            l,
-            { t: ;, h: ":" },
+            m,
+            n,
+            e,
+            i,
+            o,
             { t: "'", h: '"' },
             cmd,
             z,
             x,
             c,
+            d,
             v,
-            b,
-            n,
-            m,
+            k,
+            h,
             { t: ",", h: < },
             { t: ".", h: ">" },
             { t: /, h: "?" },
@@ -108,10 +108,10 @@ layers:
         - alt
         - cmd
         - ""
-        - left
-        - down
-        - up
-        - right
+        - h
+        - j
+        - k
+        - l
         - page up
         - home
         - cmd
@@ -120,10 +120,10 @@ layers:
         - ""
         - ""
         - ""
-        - ""
-        - ""
-        - ""
-        - ""
+        - left
+        - down
+        - up
+        - right
         - page down
         - { t: conf, type: ghost }
         - ""

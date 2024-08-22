@@ -164,7 +164,7 @@ static void render_logo(void) {
     /*       0,  0,  0,  0,  0,  0,  0,  0, */
     /* }; */
 
-    static const unsigned char PROGMEM raw_logo[] = {
+    static const char PROGMEM raw_logo[] = {
           0,  0,  0,  0,  0,  0,128,196,224,144,  0,128,
           0, 64, 64,104,114, 68,  0,128,128,  0,  0, 64,
           0,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,

@@ -396,6 +396,9 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 
 static void print_logo_narrow(void) {
     render_logo();
+    oled_set_cursor(0, 6);
+    oled_write("Corne")
+
     if (current_wpm > 0) {
         anim_sleep = timer_read32();
         /* wpm counter */

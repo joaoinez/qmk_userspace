@@ -179,10 +179,6 @@ static void render_logo(void) {
     };
 
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
-
-    oled_set_cursor(0, 6);
-    oled_write("Corne", false);
-
 }
 
 /* settings */

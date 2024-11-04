@@ -33,11 +33,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define QUICK_TAP_TERM 0
 // #define TAPPING_TERM 175
 
-#define SPLIT_USB_DETECT
-#define SPLIT_WATCHDOG_ENABLE
-#define SPLIT_USB_TIMEOUT      2000
-#define SPLIT_USB_TIMEOUT_POLL 10
-#define SPLIT_WATCHDOG_TIMEOUT 3000
+// #define SPLIT_USB_DETECT
+// #define SPLIT_WATCHDOG_ENABLE
+// #define SPLIT_USB_TIMEOUT      2000
+// #define SPLIT_USB_TIMEOUT_POLL 10
+// #define SPLIT_WATCHDOG_TIMEOUT 3000
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 #define FLOW_COUNT                 17

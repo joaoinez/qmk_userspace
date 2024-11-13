@@ -39,6 +39,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define SPLIT_USB_TIMEOUT_POLL 10
 // #define SPLIT_WATCHDOG_TIMEOUT 3000
 
+#undef SPLIT_USB_DETECT
+#define USB_VBUS_PIN GP19
+
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 #define FLOW_COUNT                 17
 #define FLOW_LAYERS_COUNT          1

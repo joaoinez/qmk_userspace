@@ -33,14 +33,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define QUICK_TAP_TERM 0
 // #define TAPPING_TERM 175
 
-// #define SPLIT_USB_DETECT
+#define SPLIT_USB_DETECT
+#define SPLIT_USB_TIMEOUT      1000
+#define SPLIT_USB_TIMEOUT_POLL 10
 // #define SPLIT_WATCHDOG_ENABLE
-// #define SPLIT_USB_TIMEOUT      2000
-// #define SPLIT_USB_TIMEOUT_POLL 10
 // #define SPLIT_WATCHDOG_TIMEOUT 3000
 
-#undef SPLIT_USB_DETECT
-#define USB_VBUS_PIN GP19
+// #undef SPLIT_USB_DETECT
+// #define USB_VBUS_PIN GP19
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 #define FLOW_COUNT                 17

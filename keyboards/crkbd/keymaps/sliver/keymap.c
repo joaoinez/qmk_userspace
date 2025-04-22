@@ -379,8 +379,6 @@ bool oled_task_user(void) {
     return false;
 }
 
-#endif
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case KC_LCTL:
@@ -396,3 +394,5 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     return true;
 }
+
+#endif

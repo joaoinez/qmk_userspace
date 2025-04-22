@@ -22,13 +22,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 enum layers {
-    // default layers
     _BASE,
     _SYM,
-    _NAV,
     _FUNC,
-    // keyboard configuration
-    _CONF
 };
 
 #define MO_BASE MO(_BASE)

@@ -3,7 +3,7 @@ Copyright 2019 @foostan
 Copyright 2021 @HellSingCoder
 Copyright 2023 @asdfire1
 Copyright 2021 @daliusd
-Copyright 2024 @joaoinez
+Copyright 2025 @joaoinez
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -21,8 +21,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-#include "flow.h"
-
 enum layers {
     // default layers
     _BASE,
@@ -33,130 +31,48 @@ enum layers {
     _CONF
 };
 
-// custom oneshot mod implementation
-enum keycodes {
-    OS_CONF = SAFE_RANGE,
-};
-
 #define MO_BASE MO(_BASE)
 #define MO_SYM MO(_SYM)
-#define MO_NAV MO(_NAV)
 #define MO_FUNC MO(_FUNC)
-#define MO_CONF MO(_CONF)
 
-#define LCTL_1 LCTL(KC_1)
-#define LCTL_2 LCTL(KC_2)
-#define LCTL_3 LCTL(KC_3)
-#define LCTL_4 LCTL(KC_4)
-#define LCTL_5 LCTL(KC_5)
-
-// flow_config should correspond to following format:
-// * layer keycode
-// * modifier keycode
-const uint16_t flow_config[FLOW_COUNT][2] = {
-    // symbols layer
-    {MO_SYM, KC_LGUI},
-    {MO_SYM, KC_RGUI},
-    {MO_SYM, KC_RALT},
-    {MO_SYM, KC_RCTL},
-    {MO_SYM, KC_RSFT},
-    // navigation layer
-    {MO_NAV, KC_LGUI},
-    {MO_NAV, KC_LALT},
-    {MO_NAV, KC_LCTL},
-    {MO_NAV, KC_LSFT},
-    // symbols layer
-    {MO_FUNC, KC_LGUI},
-    {MO_FUNC, KC_LALT},
-    {MO_FUNC, KC_LCTL},
-    {MO_FUNC, KC_LSFT},
-    {MO_FUNC, KC_RGUI},
-    {MO_FUNC, KC_RALT},
-    {MO_FUNC, KC_RCTL},
-    {MO_FUNC, KC_RSFT}
-};
-
-// for layers configuration follow this format:
-// * custom layer key
-// * layer name
-const uint16_t flow_layers_config[FLOW_LAYERS_COUNT][2] = {
-    {OS_CONF, _CONF},
-};
+#define CTL_ESC CTL_T(KC_ESC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  /* Colemak DH */
-  /*   [_BASE] = LAYOUT_split_3x6_3( */
-  /* //,-----------------------------------------------------.                    ,-----------------------------------------------------. */
-  /*      KC_ESC,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC, */
-  /* //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------| */
-  /*      KC_TAB,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,    KC_O, KC_QUOT, */
-  /* //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------| */
-  /*     KC_LGUI,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  KC_APP, */
-  /* //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------| */
-  /*                                         MO_FUNC,  MO_NAV,  KC_SPC,     KC_ENT,  MO_SYM, KC_RSFT */
-  /*                                     //`--------------------------'  `--------------------------' */
-  /* ), */
-
-  /* QWERTY */
     [_BASE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
+       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
+      CTL_ESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_QUOT,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LGUI,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_APP,
+      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, MO_FUNC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          MO_FUNC,  MO_NAV,  KC_SPC,     KC_ENT,  MO_SYM, KC_RSFT
+                                          KC_LGUI,  MO_SYM,  KC_SPC,     KC_SPC, KC_RSFT, KC_RALT
                                       //`--------------------------'  `--------------------------'
   ),
 
     [_SYM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+      CW_TOGG,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      CW_TOGG, KC_TILD, KC_UNDS, KC_LCBR, KC_RCBR, KC_MINS,                       KC_EQL, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT,  KC_GRV,
+      _______,  KC_GRV, KC_MINS, KC_LBRC, KC_RBRC,  KC_EQL,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_SCLN, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LGUI, XXXXXXX, KC_PIPE, KC_LBRC, KC_RBRC, KC_PLUS,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BSLS, OS_CONF,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, _______, _______, KC_BSLS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX,  KC_SPC,     KC_ENT, XXXXXXX, KC_RSFT
-                                      //`--------------------------'  `--------------------------'
-  ),
-
-    [_NAV] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSPC,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_TAB, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,                         KC_H,    KC_J,    KC_K,    KC_L, KC_PGUP, KC_HOME,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LGUI, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_PGDN, OS_CONF,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX,  KC_SPC,     KC_ENT, XXXXXXX, KC_RSFT
+                                          _______, XXXXXXX, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
 
     [_FUNC] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_DEL,
+      QK_BOOT,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_CAPS, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,  KC_F11,                       KC_F12, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT, KC_PSCR,
+      RGB_HUI,  KC_F11,  KC_F12, RGB_SAI, RGB_VAI, RGB_SPI,                      KC_MPLY, KC_VOLD, KC_VOLU, KC_MNXT, KC_PSCR, KC_HOME,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_MPLY, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE, OS_CONF,
+      RGB_HUD, RGB_TOG, RGB_MOD, RGB_SAD, RGB_VAD, RGB_SPD,                      XXXXXXX, KC_MUTE, XXXXXXX, KC_MPXT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
-
-    [_CONF] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
-                                      //`--------------------------'  `--------------------------'
-  )
 };
 
 #ifdef OLED_ENABLE
@@ -441,14 +357,8 @@ static void print_status_narrow(void) {
         case _SYM:
             oled_write("Sym  ", false);
             break;
-        case _NAV:
-            oled_write("Nav  ", false);
-            break;
         case _FUNC:
             oled_write("Func ", false);
-            break;
-        case _CONF:
-            oled_write("Conf ", false);
             break;
         default:
             oled_write("Undef", false);
@@ -476,9 +386,6 @@ bool oled_task_user(void) {
 #endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!update_flow(keycode, record->event.pressed, record->event.key))
-        return false;
-
     switch (keycode) {
         case KC_LCTL:
             isSneaking = record->event.pressed;
@@ -492,8 +399,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     return true;
-}
-
-void matrix_scan_user(void) {
-    flow_matrix_scan();
 }

@@ -1,222 +1,136 @@
-layout: { qmk_keyboard: crkbd/rev1, qmk_layout: LAYOUT_split_3x6_3 }
+layout:
+    zmk_keyboard: corneish_zen
+    layout_name: foostan_corne_6col_layout
 layers:
-    base:
-        [
-            esc,
-            q,
-            w,
-            f,
-            p,
-            b,
-            j,
-            l,
-            u,
-            y,
-            { t: ;, h: ":" },
-            back space,
-            tab,
-            a,
-            r,
-            s,
-            t,
-            g,
-            m,
-            n,
-            e,
-            i,
-            o,
-            { t: "'", h: '"' },
-            cmd,
-            z,
-            x,
-            c,
-            d,
-            v,
-            k,
-            h,
-            { t: ",", h: < },
-            { t: ".", h: ">" },
-            { t: /, h: "?" },
-            menu,
-            func,
-            nav,
-            space,
-            enter,
-            sym,
-            shift,
-        ]
-
-    sym:
-        - esc
-        - "!"
-        - "@"
-        - "#"
-        - $
-        - "%"
-        - ^
-        - "&"
-        - "*"
-        - (
-        - )
-        - back space
-        - caps word
-        - "~"
-        - _
-        - "{"
-        - "}"
-        - "-"
-        - "="
-        - cmd
-        - alt
-        - ctrl
-        - shift
-        - "`"
-        - cmd
-        - ""
-        - "|"
-        - "["
-        - "]"
-        - "+"
-        - ""
-        - ""
-        - ""
-        - ""
-        - \
-        - { t: conf, type: ghost }
-        - ""
-        - ""
-        - space
-        - enter
-        - { t: sym, type: held }
-        - shift
-    nav:
-        - esc
-        - "1"
-        - "2"
-        - "3"
-        - "4"
-        - "5"
-        - "6"
-        - "7"
-        - "8"
-        - "9"
-        - "0"
-        - back space
-        - tab
-        - shift
-        - ctrl
-        - alt
-        - cmd
-        - ""
-        - h
-        - j
-        - k
-        - l
-        - page up
-        - home
-        - cmd
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - left
-        - down
-        - up
-        - right
-        - page down
-        - { t: conf, type: ghost }
-        - ""
-        - { t: nav, type: held }
-        - space
-        - enter
-        - ""
-        - shift
-    func:
-        - esc
-        - f1
-        - f2
-        - f3
-        - f4
-        - f5
-        - f6
-        - f7
-        - f8
-        - f9
-        - f10
-        - delete
-        - caps lock
-        - shift
-        - ctrl
-        - alt
-        - cmd
-        - f11
-        - f12
-        - cmd
-        - alt
-        - ctrl
-        - shift
-        - print screen
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - play pause
-        - volume down
-        - volume up
-        - media next
-        - mute
-        - { t: conf, type: ghost }
-        - { t: func, type: held }
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-    conf:
-        [
-            reset,
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            rgb toggle,
-            rgb hui,
-            rgb sai,
-            rgb vai,
-            rgb spi,
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            rgb mode,
-            rgba hud,
-            rgb sad,
-            rgb vad,
-            rgb spd,
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            { t: conf, type: held },
-            { t: func, type: held },
-            "",
-            "",
-            "",
-            "",
-            "",
-        ]
+    BASE:
+        - [
+              "tab",
+              "q",
+              "w",
+              "e",
+              "r",
+              "t",
+              "y",
+              "u",
+              "i",
+              "o",
+              "p",
+              "back space",
+          ]
+        - [
+              { t: "esc", h: "ctrl" },
+              "a",
+              "s",
+              "d",
+              "f",
+              "g",
+              "h",
+              "j",
+              "k",
+              "l",
+              { t: "'", h: '"' },
+              "enter",
+          ]
+        - [
+              "shift",
+              "z",
+              "x",
+              "c",
+              "v",
+              "b",
+              "n",
+              "m",
+              { t: ",", h: "<" },
+              { t: ".", h: ">" },
+              { t: "/", h: "?" },
+              "fun",
+          ]
+        - ["super", "sym", "space", "space", "shift", "alt"]
+    SYM:
+        - [
+              "caps word",
+              { t: "1", h: "!" },
+              { t: "2", h: "@" },
+              { t: "3", h: "#" },
+              { t: "4", h: "$" },
+              { t: "5", h: "%" },
+              { t: "6", h: "^" },
+              { t: "7", h: "&" },
+              { t: "8", h: "*" },
+              { t: "9", h: "(" },
+              { t: "0", h: ")" },
+              "back space",
+          ]
+        - [
+              { t: "esc", h: "ctrl" },
+              { t: "`", h: "~" },
+              { t: "-", h: "_" },
+              { t: "[", h: "{" },
+              { t: "]", h: "}" },
+              { t: "=", h: "+" },
+              "left",
+              "down",
+              "up",
+              "right",
+              { t: ";", h: ":" },
+              "enter",
+          ]
+        - [
+              "shift",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              { t: ",", h: "<" },
+              { t: ".", h: ">" },
+              { t: "\\", h: "|" },
+              "fun",
+          ]
+        - ["super", { type: "held" }, "space", "space", "shift", "alt"]
+    FUN:
+        - [
+              "reset",
+              "f1",
+              "f2",
+              "f3",
+              "f4",
+              "f5",
+              "f6",
+              "f7",
+              "f8",
+              "f9",
+              "f10",
+              "delete",
+          ]
+        - [
+              "rgb hui",
+              "f11",
+              "f12",
+              "rgb sai",
+              "rgb vai",
+              "rgb spi",
+              "play pause",
+              "volume down",
+              "volume up",
+              "next track",
+              "print screen",
+              "home",
+          ]
+        - [
+              "rgb hud",
+              "rgb toggle",
+              "rgb mode",
+              "rgb sad",
+              "rgb vad",
+              "rgb spd",
+              null,
+              "mute",
+              null,
+              "prev track",
+              null,
+              { type: "held" },
+          ]
+        - ["super", "sym", "space", "space", "shift", "alt"]

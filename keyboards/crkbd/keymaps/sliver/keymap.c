@@ -31,30 +31,30 @@ enum layers {
 #define MO_SYM MO(_SYM)
 #define MO_FUNC MO(_FUNC)
 
-#define CTL_ESC CTL_T(KC_ESC)
+#define CTL_TAB CTL_T(KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
+       KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      CTL_ESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_QUOT,  KC_ENT,
+      CTL_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_QUOT, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, MO_FUNC,
+      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,  MO_SYM,  KC_SPC,     KC_SPC, KC_RSFT, KC_RALT
+                                          MO_FUNC,  MO_SYM,  KC_SPC,     KC_ENT, KC_RALT, KC_RGUI
                                       //`--------------------------'  `--------------------------'
   ),
 
     [_SYM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      CW_TOGG,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
+      _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,  KC_GRV, KC_MINS, KC_LBRC, KC_RBRC,  KC_EQL,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_SCLN, _______,
+      CW_TOGG,  KC_GRV, KC_MINS, KC_LBRC, KC_RBRC,  KC_EQL,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_SCLN, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, _______, _______, KC_BSLS, XXXXXXX,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, XXXXXXX, _______,    _______, _______, _______
+                                          XXXXXXX, XXXXXXX, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -80,6 +80,7 @@ static void render_logo(void) {
     /*     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 24,252,254,  0, 44,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,124,130,254,253,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 16, 56, 96,134,131,  1,243,255,  1,  3,198,108, 56, 16,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1, 12, 99,119,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 */
     /* }; */
 
+    /* Dark Souls symbol */
     static const char PROGMEM raw_logo[] = {
           0,  0,  0,  0,  0,  0,  0, 16,128, 64,  0,  0,  0,  0,  0,160,200, 16,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,142,127, 31,  6,  4,  2,  0,  1,  1,  1,  1,  1,  0,  2,  2,  4,  0, 29,120,250,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 31, 96,128,  0,  0,  0,  0,  0, 64,144,  0, 32,  0,  0,  0,  0,  0,128, 32, 31,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0,  4,  4,  9, 30, 31, 31, 28,  8,  4,  4,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0
     };
@@ -87,25 +88,25 @@ static void render_logo(void) {
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
 }
 
-/* settings */
+/* Settings */
 #    define MIN_WALK_SPEED 10
 #    define MIN_RUN_SPEED  40
 
-/* advanced settings */
-// how long each frame lasts in ms
+/* Advanced Settings */
+// How long each frame lasts in ms
 #    define ANIM_FRAME_DURATION 200
-// number of bytes in array. If you change sprites, minimize for adequate
+// Number of bytes in array. If you change sprites, minimize for adequate
 // firmware size. Max is 1024
 #    define ANIM_SIZE 96
 
-/* timers */
+/* Timers */
 uint32_t anim_timer = 0;
 uint32_t anim_sleep = 0;
 
-/* current frame */
+/* Current Frame */
 uint8_t current_frame = 0;
 
-/* status variables */
+/* Status Variables */
 int   current_wpm = 0;
 led_t led_usb_state;
 
@@ -113,7 +114,7 @@ bool isSneaking = false;
 bool isJumping  = false;
 bool showedJump = true;
 
-/* logic */
+/* Logic */
 static void render_luna(int LUNA_X, int LUNA_Y) {
     /* Sit */
     static const char PROGMEM sit[2][ANIM_SIZE] = {
@@ -253,11 +254,11 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
             0x02, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,
         }};
 
-    /* animation */
+    /* Animation */
     void animate_luna(void) {
-        /* jump */
+        /* Jump */
         if (isJumping || !showedJump) {
-            /* clear */
+            /* Clear */
             oled_set_cursor(LUNA_X, LUNA_Y + 2);
             oled_write("     ", false);
 
@@ -265,17 +266,17 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 
             showedJump = true;
         } else {
-            /* clear */
+            /* Clear */
             oled_set_cursor(LUNA_X, LUNA_Y - 1);
             oled_write("     ", false);
 
             oled_set_cursor(LUNA_X, LUNA_Y);
         }
 
-        /* switch frame */
+        /* Switch Frame */
         current_frame = (current_frame + 1) % 2;
 
-        /* current status */
+        /* Current Status */
         if (led_usb_state.caps_lock) {
             oled_write_raw_P(bark[abs(1 - current_frame)], ANIM_SIZE);
 
@@ -293,18 +294,18 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
         }
     }
 
-    /* animation timer */
+    /* Animation Timer */
     if (timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
         anim_timer = timer_read32();
         animate_luna();
     }
 
-    /* this fixes the screen on and off bug */
+    /* This fixes the screen on and off bug */
     if (current_wpm > 0) {
         oled_on();
         anim_sleep = timer_read32();
     } else if (timer_elapsed32(anim_sleep) > OLED_TIMEOUT) {
-        /* clear */
+        /* Clear */
         oled_set_cursor(0, 0);
         oled_write(
             "                                                               "
@@ -320,17 +321,17 @@ static void print_logo_narrow(void) {
 
     if (current_wpm > 0) {
         anim_sleep = timer_read32();
-        /* wpm counter */
+        /* WPM Counter */
         oled_set_cursor(0, 14);
         oled_write(get_u8_str(get_current_wpm(), '0'), false);
 
         oled_set_cursor(0, 15);
         oled_write(" WPM", false);
 
-        /* this fixes the screen on and off bug */
+        /* This fixes the screen on and off bug */
 
     } else if (timer_elapsed32(anim_sleep) > OLED_TIMEOUT) {
-        /* clear */
+        /* Clear */
         oled_set_cursor(0, 0);
         oled_write(
             "                                                               "

@@ -4,7 +4,7 @@ layout:
 layers:
     BASE:
         - [
-              "tab",
+              "esc",
               "q",
               "w",
               "e",
@@ -18,7 +18,7 @@ layers:
               "back space",
           ]
         - [
-              { t: "esc", h: "ctrl" },
+              { t: "tab", h: "ctrl" },
               "a",
               "s",
               "d",
@@ -28,8 +28,8 @@ layers:
               "j",
               "k",
               "l",
-              { t: "'", h: '"' },
-              "enter",
+              { t: "'", s: '"' },
+              { t: "\\", s: "|" },
           ]
         - [
               "shift",
@@ -40,43 +40,43 @@ layers:
               "b",
               "n",
               "m",
-              { t: ",", h: "<" },
-              { t: ".", h: ">" },
-              { t: "/", h: "?" },
-              "fun",
+              { t: ",", s: "<" },
+              { t: ".", s: ">" },
+              { t: "/", s: "?" },
+              "shift",
           ]
-        - ["super", "sym", "space", "space", "shift", "alt"]
+        - ["func", "sym", "space", "enter", "alt", "super"]
     SYM:
         - [
-              "caps word",
-              { t: "1", h: "!" },
-              { t: "2", h: "@" },
-              { t: "3", h: "#" },
-              { t: "4", h: "$" },
-              { t: "5", h: "%" },
-              { t: "6", h: "^" },
-              { t: "7", h: "&" },
-              { t: "8", h: "*" },
-              { t: "9", h: "(" },
-              { t: "0", h: ")" },
-              "back space",
+              { type: "trans", t: "esc" },
+              { t: "1", s: "!" },
+              { t: "2", s: "@" },
+              { t: "3", s: "#" },
+              { t: "4", s: "$" },
+              { t: "5", s: "%" },
+              { t: "6", s: "^" },
+              { t: "7", s: "&" },
+              { t: "8", s: "*" },
+              { t: "9", s: "(" },
+              { t: "0", s: ")" },
+              { type: "trans", t: "back space" },
           ]
         - [
-              { t: "esc", h: "ctrl" },
-              { t: "`", h: "~" },
-              { t: "-", h: "_" },
-              { t: "[", h: "{" },
-              { t: "]", h: "}" },
-              { t: "=", h: "+" },
+              "caps word",
+              { t: "`", s: "~" },
+              { t: "-", s: "_" },
+              { t: "[", s: "{" },
+              { t: "]", s: "}" },
+              { t: "=", s: "+" },
               "left",
               "down",
               "up",
               "right",
-              { t: ";", h: ":" },
-              "enter",
+              { t: ";", s: ":" },
+              { type: "trans", t: "\\", s: "|" },
           ]
         - [
-              "shift",
+              { type: "trans", t: "shift" },
               null,
               null,
               null,
@@ -84,13 +84,20 @@ layers:
               null,
               null,
               null,
-              { t: ",", h: "<" },
-              { t: ".", h: ">" },
-              { t: "\\", h: "|" },
-              "fun",
+              { type: "trans", t: ",", s: "<" },
+              { type: "trans", t: ".", s: ">" },
+              { type: "trans", t: "/", s: "?" },
+              { type: "trans", t: "shift" },
           ]
-        - ["super", { type: "held" }, "space", "space", "shift", "alt"]
-    FUN:
+        - [
+              null,
+              { type: "held", t: "sym" },
+              { type: "trans", t: "space" },
+              { type: "trans", t: "enter" },
+              { type: "trans", t: "alt" },
+              { type: "trans", t: "super" },
+          ]
+    FUNC:
         - [
               "reset",
               "f1",
@@ -131,6 +138,6 @@ layers:
               null,
               "prev track",
               null,
-              { type: "held" },
+              null,
           ]
-        - ["super", "sym", "space", "space", "shift", "alt"]
+        - [{ type: "held", t: "func" }, null, null, null, null, null]

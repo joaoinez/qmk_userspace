@@ -4,7 +4,7 @@ layout:
 layers:
     BASE:
         - [
-              "esc",
+              "tab",
               "q",
               "w",
               "e",
@@ -18,7 +18,7 @@ layers:
               "back space",
           ]
         - [
-              { t: "tab", h: "ctrl" },
+              { t: "esc", h: "ctrl" },
               "a",
               "s",
               "d",
@@ -45,7 +45,7 @@ layers:
               { t: "/", s: "?" },
               "shift",
           ]
-        - ["func", "sym", "space", "enter", "alt", "super"]
+        - ["func", "sym", "space", "enter", "super", "alt"]
     SYM:
         - [
               { type: "trans", t: "esc" },

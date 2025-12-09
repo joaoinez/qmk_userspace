@@ -29,7 +29,7 @@ layers:
               "k",
               "l",
               { t: "'", s: '"' },
-              { t: "\\", s: "|" },
+              "enter",
           ]
         - [
               "shift",
@@ -45,7 +45,7 @@ layers:
               { t: "/", s: "?" },
               "shift",
           ]
-        - ["func", "sym", "space", "enter", "super", "alt"]
+        - ["alt", "super", "space", "space", "sym", "func"]
     SYM:
         - [
               { type: "trans", t: "esc" },
@@ -73,7 +73,7 @@ layers:
               "up",
               "right",
               { t: ";", s: ":" },
-              { type: "trans", t: "\\", s: "|" },
+              { type: "trans", t: "enter" },
           ]
         - [
               { type: "trans", t: "shift" },
@@ -86,16 +86,16 @@ layers:
               null,
               { type: "trans", t: ",", s: "<" },
               { type: "trans", t: ".", s: ">" },
-              { type: "trans", t: "/", s: "?" },
+              { t: "\\", s: "|" },
               { type: "trans", t: "shift" },
           ]
         - [
-              null,
-              { type: "held", t: "sym" },
-              { type: "trans", t: "space" },
-              { type: "trans", t: "enter" },
               { type: "trans", t: "alt" },
               { type: "trans", t: "super" },
+              { type: "trans", t: "space" },
+              { type: "trans", t: "space" },
+              { type: "held", t: "sym" },
+              null,
           ]
     FUNC:
         - [
@@ -140,4 +140,4 @@ layers:
               null,
               null,
           ]
-        - [{ type: "held", t: "func" }, null, null, null, null, null]
+        - [null, null, null, null, null, { type: "held", t: "func" }]

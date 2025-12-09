@@ -5,4 +5,4 @@ LTO_ENABLE        = yes
 WPM_ENABLE        = yes
 CAPS_WORD_ENABLE  = yes
 
-CONVERT_TO = promicro_rp2040_ce
+CONVERT_TO = rp2040_ce
